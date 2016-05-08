@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="css/fig.min.css" type="text/css"/>
+        <title>Основные фигуры</title>
+        <link rel="shortcut icon" href="glaider.png" type="image/x-icon">
+        <script type="text/javascript" src="js/build/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/build/mustache.2.0.min.js"></script>
+    </head>
+    <body>    
+
+        <header>
+        </header>
+
+        <div>          
+            <button class="menu" onclick="location.href='life_mainpage.html'"> На главную </button> 
+            <button class="menu" onclick="location.href='about_page.html'"> Об игре </button>
+        </div>
+        <center>
+            <div id='stationary'>
+                 <p class="p1">Устойчивые фигуры </p> 
+            </div>
+        </center>
+        <center>
+            <div id='moving'>
+            <p class="p1"> Двигающиеся фигуры </p> 
+            </div>
+        </center>
+        <center>
+            <div id='periodic'>
+                 <p class="p1"> Периодические фигуры</p> 
+            </div>
+        </center>
+        <center>
+            <div id='long'>
+                 <p class="p1"> Мафусаилы </p> 
+            </div>
+        </center>
+        <center>
+            <div id='gun'>
+                 <p class="p1"> Ружья</p> 
+            </div>
+        </center>
+
+
+        <script type="text/html" id="figure">
+            <figure class="sign">
+                <img src="{{image}}">
+                <figcaption>{{caption}}</figcaption>
+            </figure>
+        </script>
+            
+        <script type="text/javascript">
+
+            var periodic = [
+                {image: "pic/8.gif", caption: "Жаба"},
+                {image: "pic/9.gif", caption: "Тумблер"},
+                {image: "pic/16.gif", caption: "Крест"},
+                {image: "pic/17.gif", caption: "Пентадекатлон"}, 
+                {image: "pic/18.gif", caption: "Часы"},
+            ];
+
+            var moving = [
+                {image: "pic/14.png", caption: "Глайдер"},
+                {image: "pic/12.png", caption: "Маленький космический корабль"},
+                {image: "pic/13.png", caption: "Средний космический корабль"},
+                {image: "pic/11.png", caption: "Большой космический корабль"},
+            ];
+
+            var gun = [
+                {image: "pic/gosper.png", caption: "Ружье Госпера"},
+            ];
+            
+            var long = [
+                {image: "pic/r-pentamino.png", caption: "r-пентамино (1103 поколения)"},
+                {image: "pic/diehard.png", caption: "Крепкий орешек (130 поколений)"},
+                {image: "pic/acorn.png", caption: "Желудь (5206 поколений)"}
+            ];
+
+            var stationary = [
+                {image: "pic/2.png", caption: "Улей"},
+                {image: "pic/3.png", caption: "Каравай"},
+                {image: "pic/1.png", caption: "Блок"},
+                {image: "pic/4.png", caption: "Бадья"},
+                {image: "pic/5.png", caption: "Лодка"},
+                {image: "pic/6.png", caption: "Корабль"},
+                {image: "pic/9.png", caption: "Змея"},
+                {image: "pic/15.png", caption: "Дубинка"}
+            ];
+
+
+            $(function () {            
+                var template = $('#figure').html();
+                var index = 0, count = stationary.length, element = $('#stationary');
+                for (index = 0; index < count; index++) {
+                    element.append(Mustache.render(template, stationary[index]));    
+                }
+            });
+            $(function () {            
+                var template = $('#figure').html();
+                var index = 0, count = moving.length, element = $('#moving');
+                for (index = 0; index < count; index++) {
+                    element.append(Mustache.render(template, moving[index]));    
+                }
+            });
+            $(function () {            
+                var template = $('#figure').html();
+                var index = 0, count = periodic.length, element = $('#periodic');
+                for (index = 0; index < count; index++) {
+                    element.append(Mustache.render(template, periodic[index]));    
+                }
+            });
+            $(function () {            
+                var template = $('#figure').html();
+                var index = 0, count = gun.length, element = $('#gun');
+                for (index = 0; index < count; index++) {
+                    element.append(Mustache.render(template, gun[index]));    
+                }
+            });
+            $(function () {            
+                var template = $('#figure').html();
+                var index = 0, count = long.length, element = $('#long');
+                for (index = 0; index < count; index++) {
+                    element.append(Mustache.render(template, long[index]));    
+                }
+            });
+
+            
+        </script>
+
+        <div class="copyright"> © Саркисян Вероника, 2015 </div>        
+    </body>
+</html>
